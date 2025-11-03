@@ -1,0 +1,25 @@
+﻿@using static StudentInfoLoginRoles.ViewModels.AdminViewModels
+@model List<UserRolesViewModel>
+
+<h2>Users</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Roles</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>@string.Join(", ", user.Roles)</td>
+                <td>
+                    <a asp-action="EditRoles" asp-route-userId="@user.UserId" class="btn btn-sm btn-primary">Edit Roles</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

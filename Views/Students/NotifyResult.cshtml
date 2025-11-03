@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Notify fee pending information";
+}
+@if (ViewBag.AlertMessage != null)
+{
+    <script>
+                alert('@ViewBag.AlertMessage');
+    </script>
+}
+<h2>Email notification sent</h2>
+<p>
+    The email notification regarding pending fees has been sent successfully to the student.<br />
+@ViewBag.AlertMessage</p>
