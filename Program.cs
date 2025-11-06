@@ -1,6 +1,7 @@
 using StudentInfoLoginRoles.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using StudentInfoLoginRoles.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.S
     .AddEntityFrameworkStores<ApplicationContext>()
     .AddDefaultTokenProviders()
     .AddDefaultUI();
+
+builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
 var app = builder.Build();
 //add seed data method call to create roles
@@ -48,6 +51,11 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapRazorPages();
+
+app.MapRazorComponents<ImageGenerator>()
+    .AddInteractiveServerRenderMode();
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
