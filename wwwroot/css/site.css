@@ -20,3 +20,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+#messagesList {
+    max-height: 400px;
+    overflow-y: scroll;
+    background: #f8f9fa;
+    border-radius: 8px;
+}

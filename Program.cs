@@ -1,7 +1,9 @@
-using StudentInfoLoginRoles.Models;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 using StudentInfoLoginRoles.Components;
+using StudentInfoLoginRoles.Models;
+using StudentInfoLoginRoles.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.S
 
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
+builder.Services.AddSignalR();
 var app = builder.Build();
 //add seed data method call to create roles
 using (var scope = app.Services.CreateScope())
@@ -55,9 +58,9 @@ app.MapRazorPages();
 app.MapRazorComponents<ImageGenerator>()
     .AddInteractiveServerRenderMode();
 
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapHub<ChatHub>("/chathub");
 app.Run();
