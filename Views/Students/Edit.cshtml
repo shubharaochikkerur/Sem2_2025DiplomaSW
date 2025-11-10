@@ -42,6 +42,7 @@
                 <label>Upload Photo</label>
                 <input type="file" name="photo" class="form-control" />
             </div>
+            @* if there is a value in PhotoPath, display the image *@
             @if (Model.PhotoPath != null)
             {
                 <div class="mt-3">

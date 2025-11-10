@@ -196,19 +196,19 @@ namespace StudentInfoLoginRoles.Controllers
                 return NotFound();
             }
 
-            var existingStudent = await _context.Students.FindAsync(id);
-            if (existingStudent == null)
-                return NotFound();
+            //var existingStudent = await _context.Students.FindAsync(id);
+            //if (existingStudent == null)
+            //    return NotFound();
 
             if (ModelState.IsValid)
             {
                 // Update regular bound fields
-                existingStudent.FirstName = student.FirstName;
-                existingStudent.LastName = student.LastName;
-                existingStudent.CourseCode = student.CourseCode;
-                existingStudent.Email = student.Email;
-                existingStudent.Phone = student.Phone;
-                existingStudent.FeePending = student.FeePending;
+                //existingStudent.FirstName = student.FirstName;
+                //existingStudent.LastName = student.LastName;
+                //existingStudent.CourseCode = student.CourseCode;
+                //existingStudent.Email = student.Email;
+                //existingStudent.Phone = student.Phone;
+                //existingStudent.FeePending = student.FeePending;
 
                 if (photo != null)
                 {

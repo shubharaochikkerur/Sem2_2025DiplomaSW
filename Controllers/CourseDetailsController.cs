@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace StudentInfoLoginRoles.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    [Authorize] //[Authorize(Roles ="Admin")]
     public class CourseDetailsController : Controller
     {
         private readonly ApplicationContext _context;
