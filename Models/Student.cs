@@ -27,5 +27,7 @@ namespace StudentInfoLoginRoles.Models
         [ValidateNever] 
         public ICollection<FeeTransaction>? FeeTransactions { get; set; } = new List<FeeTransaction>();
 
+        [ValidateNever]
+        public string? PhotoPath { get; set; } //added new property for photo path
     }
 }
